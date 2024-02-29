@@ -1,6 +1,5 @@
 import requests  # εισαγωγή της βιβλιοθήκης
 
-
 def more(text):
     count = 0
     for line in text.split('\n'):
@@ -11,11 +10,8 @@ def more(text):
             if reply == 'n':
                 break
 
-
-url = input("Enter a URL: ")
+url = 'http://python.org/'  # προσδιορισμός του url
 
 with requests.get(url) as response:  # το αντικείμενο response
-    # html = response.text
-    # more(html)
-    print(f"Website's headers are {url} \, {response.headers}\n\n")
-    server = response.headers.get('Server')
+    html = response.text
+    more(html)
